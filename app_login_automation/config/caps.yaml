@@ -1,0 +1,29 @@
+# Appium 启动参数（Desired Capabilities）与测试账号配置
+#
+# 使用前请按你的真机 / 模拟器和被测 APP 修改下列字段。
+# 获取 appPackage / appActivity 的常用方法：
+#   1) 连接设备后启动 APP，执行：adb shell dumpsys window | grep mCurrentFocus
+#   2) 或使用 Appium Inspector 查看。
+
+# Appium Server 地址
+server_url: "http://127.0.0.1:4723"
+
+# 启动能力
+capabilities:
+  platformName: "Android"
+  appium:automationName: "UiAutomator2"
+  appium:deviceName: "Android Emulator"     # 真机可填 adb devices 显示的序列号
+  appium:platformVersion: "13"              # 设备系统版本
+  appium:appPackage: "com.example.demo"     # 被测 APP 包名
+  appium:appActivity: ".ui.LoginActivity"   # 登录页 Activity
+  appium:noReset: true                       # 不清除 APP 数据
+  appium:newCommandTimeout: 120
+
+# 测试账号
+account:
+  valid:
+    username: "test_user"
+    password: "Test@123456"
+  invalid:
+    username: "test_user"
+    password: "wrong_password"
