@@ -1,0 +1,34 @@
+# Local environments and secrets
+.env
+.env.*
+*.env
+*.env.*
+.venv/
+venv/
+env/
+ENV/
+**/pyvenv.cfg
+**/site-packages/
+**/.ssh/
+**/.aws/
+**/.azure/
+credentials*
+secrets*
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+
+# Generated files and editor settings
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.idea/
+.vscode/
+*.log
