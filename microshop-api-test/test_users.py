@@ -127,7 +127,7 @@ def test_get_current_user_without_authorization():
     #     url=ME_URL
     # )
 
-    # 不传token API层将发送不带Authorization的请求头
+    # 不传 Token，发送不携带 Authorization 请求头的请求
     response = get_current_user()
     # 验证未携带认证凭证时返回实际观察到的状态码
     assert response.status_code == 401

@@ -8,6 +8,7 @@ from api.products_api import (
 # BASE_URL = "http://127.0.0.1:8015"
 
 
+
 def test_get_products_lists():
     products_response = get_products()
 
@@ -44,7 +45,7 @@ def test_get_product_detail_success():
     # 从上游商品列表中提取第一件商品的真实 ID
     product_id = products_list_body[0]["id"]
 
-    # 将上游返回的 ID 放入下游商品详情接口的 Path
+    # 将上游商品 ID 交给详情 API，Path 由 API 层拼接
     # product_detail_url = f"{BASE_URL}/products/{product_id}"
     product_detail_response = get_product_detail(product_id)
     assert product_detail_response.status_code == 200
@@ -67,7 +68,7 @@ def test_get_nonexistent_product_returns_404():
     # API层负责拼接path并发送商品详情请求
     product_error_response = get_product_detail(nonexistent_product_id)
 
-    # 测试层验证本场景期望的404场景
+    # 验证不存在的商品返回 404
     assert product_error_response.status_code == 404
 
     product_error_response_body = product_error_response.json()

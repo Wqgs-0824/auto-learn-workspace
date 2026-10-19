@@ -1,11 +1,9 @@
 import pytest
-import requests
 import uuid
 
 from api.users_api import (
     register_user,
-    login_user,
-    get_current_user
+    login_user
 )
 
 # BASE_URL = "http://127.0.0.1:8015"
