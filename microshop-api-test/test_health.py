@@ -1,13 +1,10 @@
-import requests
 
-from config import BASE_URL
+from api.health_api import get_health
 
 def test_check_health():
-    health_url = f"{BASE_URL}/health"
+    # health_url = f"{BASE_URL}/health"
 
-    health_response = requests.get(
-        url=health_url
-    )
+    health_response = get_health()
 
     health_body = health_response.json()
 
